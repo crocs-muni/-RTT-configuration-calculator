@@ -40,11 +40,11 @@ TEST_NAMES = {
     209: "Dieharder DAB Monobit 2 Test",
 }
 
-BYTES_PER_PSAMPLE = {0: 153600,
+BYTES_PER_PSAMPLE = {0: 153624,
                      1: 4000020,
                      2: 5120000,
                      3: 2400000,
-                     4: 1048583,
+                     4: 1048584,
                      5: 8388608,
                      6: 5592416,
                      7: 2621484,
