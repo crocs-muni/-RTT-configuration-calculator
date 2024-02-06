@@ -38,6 +38,8 @@ TEST_NAMES = {
     207: "Dieharder DAB Fill Tree Test",
     208: "Dieharder DAB Fill Tree Test 2",
     209: "Dieharder DAB Monobit 2 Test",
+    210: "Dieharder DAB Diehard Birthdays Test",
+    211: "Dieharder DAB OPSO2",
 }
 
 BYTES_PER_PSAMPLE = {0: 153624,
@@ -66,12 +68,14 @@ BYTES_PER_PSAMPLE = {0: 153624,
                      206: 51200000,
                      207: 452016414,
                      208: 116881518,
-                     209: 260000000}
+                     209: 260000000,
+                     210: 13600000,
+                     211: 268435456}
 
 NTUPLES = {200: (1, 12), 201: (2, 5), 202: (2, 5), 203: (0, 32)}
 
 TEST_IDS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 100,
-            101, 102, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209]
+            101, 102, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211]
 
 VARIABLE_SIZE_TESTS = {13, 16, 207, 208}
 
@@ -100,7 +104,7 @@ def get_bytes_per_psample(args, test_id: int, ntup: Optional[int]) -> int:
         return int(BYTES_PER_PSAMPLE[test_id] * (1 + args.dieharder_buffer))
     # rest of tests (with no variants and constant sizes)
     elif test_id in {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 17,
-                     100, 101, 102, 204, 205, 206, 209} and ntup is None:
+                     100, 101, 102, 204, 205, 206, 209, 210, 211} and ntup is None:
         return BYTES_PER_PSAMPLE[test_id]
     raise ValueError("Invalid test ID or combination of test ID and ntup")
 
@@ -267,7 +271,7 @@ def dieharder_defaults(args):
 
         if test_id in {201, 204}:
             test["psamples"] = 1000
-        elif test_id in {205, 206, 207, 208, 209}:
+        elif test_id in {205, 206, 207, 208, 209, 210, 211}:
             test["psamples"] = 1
 
         if test_id in {13, 16, 207, 208}:
