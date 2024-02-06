@@ -55,7 +55,7 @@ def main(arguments) -> None:
         print("The data size is 0, please insert a positive number", file=stderr)
         exit(-1)
     elif data_size == 0 and arguments.data_file is None:
-        print("The tested file is empy, please choose nonempty file", file=stderr)
+        print("The tested file is empty, please choose nonempty file", file=stderr)
         exit(-1)
 
     with open(arguments.config_file, "w") as config_file:

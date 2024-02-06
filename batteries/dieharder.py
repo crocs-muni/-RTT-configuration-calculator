@@ -86,7 +86,7 @@ def get_bytes_per_psample(args, test_id: int, ntup: Optional[int]) -> int:
        :param ntup: int identifying the test variant, None if the test has no variants.
        :return: int representing number of bytes needed for one repetition (psample) of chosen test.
     """
-    # tests with varints
+    # tests with variants
     if test_id == 200 and 1 <= ntup <= 12:
         return ntup * 800000 + 4
     elif test_id == 201 and 2 <= ntup <= 5:
